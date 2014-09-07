@@ -111,7 +111,7 @@ fi
 # 通过 "inet " 排除掉 inet6 。
 # awk '{print $2}' 使用默认的空白字符（如空格或制表符作为字段的分隔符）
 # awk -F. '{print $1}'` 使用 '.' 作为分隔符
-ip_prefix=`ifconfig ${out_interface} | grep "inet " | awk '{print $2}' | awk -F. '{print $1}'`
+ip_prefix=`ifconfig ${out_interface} | grep "inet " | gawk '{print $2}' | gawk -F. '{print $1}'`
 case ${ip_prefix} in
     "10")
         ip_prefix="172.16"
